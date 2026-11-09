@@ -1,0 +1,14 @@
+{
+  "name": "library-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix api run build",
+    "lint": "npm --prefix api run lint",
+    "start": "npm --prefix api run start",
+    "start:dev": "npm --prefix api run start:dev",
+    "prisma:generate": "npm --prefix api run prisma:generate",
+    "prisma:seed": "npm --prefix api run prisma:seed"
+  }
+}
+
