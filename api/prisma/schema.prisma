@@ -16,6 +16,7 @@ model User {
   id        String   @id @default(uuid())
   email     String   @unique
   name      String
+  password  String
   role      Role     @default(PATRON)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -30,15 +31,16 @@ model Genre {
 }
 
 model Book {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid())
   title       String
   author      String
-  isbn        String   @unique
-  publishedAt DateTime
+  isbn        String    @unique
+  totalCopies Int       @default(1)
+  publishedAt DateTime? @default(now())
   genreId     String
-  genre       Genre    @relation(fields: [genreId], references: [id], onDelete: Cascade)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  genre       Genre     @relation(fields: [genreId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
   @@index([genreId])
 }
